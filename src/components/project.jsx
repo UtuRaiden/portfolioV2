@@ -7,13 +7,13 @@ export default function Projects({name, description, image, github, deployed}){
             <div className ='mx-10 my-4'>
                 <a href={deployed} ><img src = {image}/></a>
             </div>
-            <div class='flex ml-10'>
+            <div className='flex ml-10'>
                 <div>
                     <a href={github}><div className='text-teal-500'>{name}</div></a>
                     <p>{description}</p>
                 </div>
                 <div>
-                    <a href={github}><img src={githubLogo} className ="max-w-[100px]" alt="" /></a>
+                    <a href={github}><img src={githubLogo} className ="max-w-[100px] mr-2" alt="" /></a>
                 </div>
             </div>
         </div>

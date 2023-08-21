@@ -1,78 +1,106 @@
-import { useState } from 'react'
+import { useState } from 'react';
+import emailjs from 'emailjs-com';
 
 export default function ContactPage() {
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [message, setMessage] = useState('');
 
-    const [name, setName] = useState('')
-    const [email, setEmail] = useState('')
-    const [message, setMessage] = useState('')
+    const emailJsConfig = {
+        serviceId: import.meta.env.VITE_SERVICE_ID,
+        templateId: import.meta.env.VITE_TEMPLATE_ID,
+        userId: import.meta.env.VITE_USER_ID,
+      };
 
     const handleInputChange = (e) => {
-        const { target } = e
-        const inputType = target.name
-        const inputValue = target.value
+        const { target } = e;
+        const inputType = target.name;
+        const inputValue = target.value;
 
         if (inputType === 'name') {
-            setName(inputValue)
+            setName(inputValue);
         } else if (inputType === 'email') {
-            setEmail(inputValue)
+            setEmail(inputValue);
         } else {
-            setMessage(inputValue)
+            setMessage(inputValue);
         }
     }
 
-    function handleFormSubmit(e) {
-        
-    }
+    async function handleFormSubmit(e) {
+        e.preventDefault();
 
+        try {
+            await emailjs.send(
+                emailJsConfig.serviceId,
+                emailJsConfig.templateId,
+                {
+                    from_name: name,
+                    from_email: email,
+                    message: message,
+                },
+                emailJsConfig.userId
+            );
+
+            alert('Email sent successfully!');
+            setName('');
+            setEmail('');
+            setMessage('');
+        } catch (error) {
+            console.error('Error sending email:', error);
+            alert('An error occurred while sending the email.');
+        }
+    }
     return (
-        <main>
+        <main className="flex flex-col items-center space-y-6">
             <h1>Contact Me</h1>
             <div>
-                <p>Feel free to contact me at
-                    <a href="mailto:barronpeterson56@gmail.com"> barronpeterson56@gmail.com </a>
-                     or use the following form:
+                <p>
+                    Feel free to contact me at{' '}
+                    <a  className ='text-teal-500' href="mailto:Barronpeterson56@gmail.com">barronpeterson56@gmail.com</a> or use the following form:
                 </p>
             </div>
             <section>
-                <form onSubmit={handleFormSubmit}>
-                    <div className='flex justify-center'>
+                <form onSubmit={handleFormSubmit} className="w-full max-w-md">
+                    <div className="flex justify-center">
                         <input
-                        value={name}
-                        name="name"
-                        onChange={handleInputChange}
-                        type="text"
-                        placeholder="Name"
+                            value={name}
+                            name="name"
+                            onChange={handleInputChange}
+                            type="text"
+                            placeholder="Name"
+                            className="w-full px-4 py-2 border border-gray-300 rounded-lg"
                         />
                     </div>
-                    <div >
+                    <div>
                         <input
-                        value={email}
-                        name="email"
-                        onChange={handleInputChange}
-                        type="email"
-                        placeholder="Email"
+                            value={email}
+                            name="email"
+                            onChange={handleInputChange}
+                            type="email"
+                            placeholder="Email"
+                            className="w-full px-4 py-2 mt-4 border border-gray-300 rounded-lg"
                         />
                     </div>
                     <div>
                         <textarea
-                        value={message}
-                        name="message"
-                        onChange={handleInputChange}
-                        type="text"
-                        placeholder="Enter your message..."
+                            value={message}
+                            name="message"
+                            onChange={handleInputChange}
+                            placeholder="Enter your message..."
+                            className="w-full px-4 py-2 mt-4 border border-gray-300 rounded-lg"
                         />
                     </div>
-                    <div >
+                    <div className="flex justify-center">
                         <button
-                        type="button"
-                        onClick={handleFormSubmit}
-                        onChange={handleInputChange}
+                            type="button"
+                            onClick={handleFormSubmit}
+                            className="px-4 py-2 mt-4 text-white bg-blue-500 rounded-lg hover:bg-blue-600"
                         >
-                        Send
+                            Send
                         </button>
                     </div>
                 </form>
             </section>
         </main>
-    )
+    );
 }

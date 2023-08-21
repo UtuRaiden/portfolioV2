@@ -2,6 +2,7 @@ import React from "react"
 import Projects from "../components/project"
 
 import socialApi from '../assets/img/socialApi.png'
+import readMeGen from'../assets/img/readMeGen.png'
 
 export default function Project(){
     const projectsData =[
@@ -10,8 +11,15 @@ export default function Project(){
             description:"This is a backend for a social network in which you can add friend, make a post, and react/comment on a post",
             image: socialApi,
             github:"https://github.com/UtuRaiden/social-network-API",
-            deployed:false
+            deployed:''
         },
+        {
+            name:'Read Me Generator',
+            description:"This is a simple inquirer app that takes data from questions you answer and creates a professional README file.",
+            image: readMeGen,
+            github:"https://github.com/UtuRaiden/read-me-generator",
+            deployed:''
+        }
     ]
 
     const projectItem = projectsData.map((projectsData) => (
