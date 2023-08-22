@@ -1,17 +1,21 @@
+//import dependency's
 import { useState } from 'react';
 import emailjs from 'emailjs-com';
 
 export default function ContactPage() {
+    //creates name,email,and message to be used as form inputs
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [message, setMessage] = useState('');
+
+    //pulls env secrets
 
     const emailJsConfig = {
         serviceId: import.meta.env.VITE_SERVICE_ID,
         templateId: import.meta.env.VITE_TEMPLATE_ID,
         userId: import.meta.env.VITE_USER_ID,
       };
-
+      //function that changes the value of whatever is being typed in
     const handleInputChange = (e) => {
         const { target } = e;
         const inputType = target.name;
@@ -25,7 +29,7 @@ export default function ContactPage() {
             setMessage(inputValue);
         }
     }
-
+//function to send an email to my email whenever a form is submitted
     async function handleFormSubmit(e) {
         e.preventDefault();
 
@@ -33,7 +37,7 @@ export default function ContactPage() {
             await emailjs.send(
                 emailJsConfig.serviceId,
                 emailJsConfig.templateId,
-                {
+                {//contents of said email come from the form
                     from_name: name,
                     from_email: email,
                     message: message,
@@ -42,6 +46,7 @@ export default function ContactPage() {
             );
 
             alert('Email sent successfully!');
+            //set form inputs to blank
             setName('');
             setEmail('');
             setMessage('');

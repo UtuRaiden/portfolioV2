@@ -1,6 +1,6 @@
 import github from "../assets/img/Githublogo.png"
 import linkedin from '../assets/img/linkedin.png'
-
+//creates main footer used on every page
 export default function Footer() {
     return (
         <footer className="flex justify-center">

@@ -1,3 +1,4 @@
+// import all dependencies
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
@@ -14,6 +15,7 @@ import Resume from './pages/resume'
 
 const router = createBrowserRouter([
   {
+    //Names all the pages that will be dynamically displayed using the react outlet
     path:'/portfolioV2',
     element:<App/>,
     errorElement:<ErrorPage/>,

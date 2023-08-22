@@ -1,6 +1,6 @@
 import React from 'react'
 import githubLogo from '../assets/img/Githublogo.png'
-
+//This creates each individual project div with a name description image github link and deployed link (if applicable)
 export default function Projects({name, description, image, github, deployed}){
     return(
         <div className =''>

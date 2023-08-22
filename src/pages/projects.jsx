@@ -1,9 +1,10 @@
+//import all dependency's
 import React from "react"
 import Projects from "../components/project"
 
 import socialApi from '../assets/img/socialApi.png'
 import readMeGen from'../assets/img/readMeGen.png'
-
+//declares my projects
 export default function Project(){
     const projectsData =[
         {
