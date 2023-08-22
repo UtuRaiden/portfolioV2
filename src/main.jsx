@@ -23,15 +23,15 @@ const router = createBrowserRouter([
         element:<AboutMe />,
       },
       {
-        path:'project',
+        path:'/portfolioV2/project',
         element:<Project />
       },
       {
-        path:'contact',
+        path:'/portfolioV2/contact',
         element:<Contact />,
       },
       {
-        path:'resume',
+        path:'/portfolioV2/resume',
         element:<Resume />,
       },
     ]
