@@ -1,7 +1,7 @@
 export default function AboutMe(){
     return(
         <div>
-            <p>Hello World!! Error</p>
+            <p>Oops. Something went wrong!</p>
         </div>
     )
 }

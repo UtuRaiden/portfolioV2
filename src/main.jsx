@@ -19,8 +19,16 @@ const router = createBrowserRouter([
     errorElement:<ErrorPage/>,
     children:[
       {
-        index:true,
-        element:<AboutMe />,
+        element: (
+          <ErrorBoundary
+            onError={(error) => {
+              console.error('Error caught by ErrorBoundary:', error);
+            }}
+            FallbackComponent={ErrorPage} 
+          >
+            <AboutMe />
+          </ErrorBoundary>
+        ),
       },
       {
         path:'project',
