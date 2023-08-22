@@ -14,21 +14,13 @@ import Resume from './pages/resume'
 
 const router = createBrowserRouter([
   {
-    path:'/',
+    path:'/portfolioV2',
     element:<App/>,
     errorElement:<ErrorPage/>,
     children:[
       {
-        element: (
-          <ErrorBoundary
-            onError={(error) => {
-              console.error('Error caught by ErrorBoundary:', error);
-            }}
-            FallbackComponent={ErrorPage} 
-          >
-            <AboutMe />
-          </ErrorBoundary>
-        ),
+        index:true,
+        element:<AboutMe />,
       },
       {
         path:'project',
