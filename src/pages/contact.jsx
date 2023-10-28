@@ -61,7 +61,7 @@ export default function ContactPage() {
             <div>
                 <p>
                     Feel free to contact me at{' '}
-                    <a  className ='text-teal-500' href="mailto:Barronpeterson56@gmail.com">barronpeterson56@gmail.com</a> or use the following form:
+                    <a  className ='text-teal-500' href="mailto:Barron.peterson56@outlook.com">Barron.Peterson56@outlook.com</a> or use the following form:
                 </p>
             </div>
             <section>
