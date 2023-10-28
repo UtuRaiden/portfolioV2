@@ -16,7 +16,7 @@ import Resume from './pages/resume'
 const router = createBrowserRouter([
   {
     //Names all the pages that will be dynamically displayed using the react outlet
-    path:'/portfolioV2',
+    path:'/',
     element:<App/>,
     errorElement:<ErrorPage/>,
     children:[
@@ -25,15 +25,15 @@ const router = createBrowserRouter([
         element:<AboutMe />,
       },
       {
-        path:'portfolioV2/project',
+        path:'/project',
         element:<Project />
       },
       {
-        path:'portfolioV2/contact',
+        path:'/contact',
         element:<Contact />,
       },
       {
-        path:'portfolioV2/resume',
+        path:'/resume',
         element:<Resume />,
       },
     ]
