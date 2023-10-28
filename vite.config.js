@@ -10,5 +10,5 @@ export default defineConfig({
     'process.env.VITE_TEMPLATE_ID': JSON.stringify(process.env.VITE_TEMPLATE_ID),
     'process.env.VITE_USER_ID': JSON.stringify(process.env.VITE_USER_ID),
   },
-  base:"//"
+  base:"/"
 });
